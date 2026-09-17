@@ -44,16 +44,32 @@ partially proven (detail-page, currently) or a family as unconfirmed on a
 given surface, verify more carefully, not less — you're in territory nobody
 has watched happen yet.
 
-## Choose the cheaper way to verify, and don't batch across a branch point
+## A screenshot is not your default check — it is a fallback
 
-Two different things count as "checking what happened": a structural read of
-the page (an accessibility-tree read, or a natural-language element search)
-and a screenshot. The structural read is usually far cheaper and is what
-this wizard's dialogs support well — reach for it first. Reserve a
-screenshot for a genuinely visual question (how something is laid out or
-rendered, a chart, a virtualized list) or for a state `wizard-flows.md`
-hasn't documented, where there's no known label to search for and a wider
-look is the only option.
+**After a click, the first thing you reach for is a structural read of the
+page — an accessibility-tree read, or a natural-language element search —
+never a screenshot.** This is not a cost/benefit judgment call to make fresh
+each time. It's the default action. Treat any screenshot you're about to
+take as something you need a specific reason for, not something you do
+out of habit because it's the obvious move.
+
+This has already failed once, on this exact wizard. An agent that had just
+finished reading this file still took a screenshot after every single click
+anyway, and kept doing it through several wizard states. It only stopped
+after being asked, twice, directly, whether it was following this
+instruction — and even then, its first attempt at an answer talked about a
+different rule (not batching across a branch point) instead of admitting it
+hadn't touched a structural read at all. Reading this paragraph is not the
+same as obeying it. If you notice yourself reaching for a screenshot,
+stop and name, explicitly, why a structural read won't answer the question —
+if you can't, take the structural read instead.
+
+A screenshot is justified only for: a genuinely visual question (how
+something is laid out or rendered, a chart, a virtualized list), or a state
+`wizard-flows.md` hasn't documented, where there's no known label to search
+for and a wider look is the only option. Those are named exceptions you
+reach for deliberately — not a default you fall into because it's easier
+than deciding which tool fits.
 
 When you do a structural read, search for the exact instruction text, dialog
 title, or field label `wizard-flows.md` already records for that state — for
@@ -61,6 +77,8 @@ example `Set the data source for the widget`, `Choose column`, or `Selected
 data source:` — rather than guessing at wording. It already carries what a
 correct state actually says; use that as the search target instead of
 rediscovering it each time.
+
+## Don't batch across a branch point
 
 Taking several actions in one turn before checking anything is safe only for
 a fixed, non-branching sequence — one where nothing between the actions can
@@ -70,6 +88,11 @@ items only reveal themselves on hover, and `Next` on Data source and Summary
 data stays disabled until a value is set. Verify individually across any of
 those. Batch only a run of independent, already-visible controls — for
 instance, a few Customize fields that don't affect one another.
+
+This is a separate rule from the one above — don't satisfy it and assume
+you've also satisfied the screenshot rule. Verifying individually per step
+and verifying *cheaply* per step are two different disciplines; the wizard
+needs both.
 
 ## `Finish` requires explicit, named authorization
 
