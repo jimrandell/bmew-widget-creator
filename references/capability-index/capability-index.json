@@ -4,7 +4,7 @@
   "authorityInputs": [
     {
       "inputPath": "references/domain/report-widget-construction-corpus.md",
-      "sha256": "b2f9e1b008750352000dfaff7404c41dcf8a51c37e3e880b23b7bac6005f3c05"
+      "sha256": "3f1a994294fd527380bfcbeda365fe49daa04073e848f8541bb17946f7ba11b4"
     },
     {
       "inputPath": "references/domain/non-card-host-and-target-evidence.md",

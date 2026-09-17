@@ -4,7 +4,7 @@ This is the requested evidence deliverable. It captures literal report-option gr
 
 Scope: `ListView`, `ChartView`, `SummaryView`, `DynamicListView`. Cards remain excluded. The shared widget serializer contains incidental branches for other types; these are retained only inside complete source evidence and do not extend scope. Detail-page evidence is supplied for a later scope decision.
 
-Source root: `E:/Repositories/Repos/businessman-web`. Existing package: `E:/Repositories/Repos/bmew-developer-agent-workspace/codex-home/skills/custom/bmew-widget-sql`. Source citations throughout are provenance. The literal definitions needed for this handover are embedded in this document. There is no release/version check or inference.
+Source root: the `businessman-web` application repository. Source citations throughout are provenance. The literal definitions needed for this handover are embedded in this document. There is no release/version check or inference.
 
 ## What was captured and what remains a target fact
 

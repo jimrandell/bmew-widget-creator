@@ -1,6 +1,0 @@
-interface:
-  display_name: "BMEW Widget Creator"
-  short_description: "Plan and validate BMEW report widgets"
-
-policy:
-  allow_implicit_invocation: true
