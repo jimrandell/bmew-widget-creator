@@ -37,19 +37,33 @@ const container = lookupCapability(index, { source: 'customer', columns: [['Bank
 assert.equal(container.semantic.reasonCode, 'container-only-path');
 assert.equal(container.maximumPermittedNextState, 'idea');
 
-// A path with zero matches (not ambiguous, not a container) must report unknown-path, not throw.
-// Regression test for a bug where `selected.find(option => !option)` returned the found `undefined`
-// itself, which is falsy, so a genuinely missing option was treated as "nothing missing" and the
-// code fell through to `selected.map(option => option.evidence)`, crashing on the undefined entry.
-const unknownPath = lookupCapability(index, { source: 'supplier', columns: [['Company', 'Name']] });
+// A path with zero matches (not ambiguous, not a container, not a guessed composed relation path)
+// must report unknown-path, not throw. Regression test for a bug where
+// `selected.find(option => !option)` returned the found `undefined` itself, which is falsy, so a
+// genuinely missing option was treated as "nothing missing" and the code fell through to
+// `selected.map(option => option.evidence)`, crashing on the undefined entry.
+const unknownPath = lookupCapability(index, { source: 'supplier', columns: [['Nonexistent field', 'Sub field']] });
 assert.equal(unknownPath.semantic.reasonCode, 'unknown-path');
 assert.equal(unknownPath.maximumPermittedNextState, 'idea');
 
 // Same bug, but mixed with otherwise-valid paths — the exact shape that originally crashed.
 const unknownPathMixed = lookupCapability(index, {
-    source: 'supplier', columns: [['Company', 'Name'], ['Alias'], ['Account number']],
+    source: 'supplier', columns: [['Nonexistent field', 'Sub field'], ['Alias'], ['Account number']],
 });
 assert.equal(unknownPathMixed.semantic.reasonCode, 'unknown-path');
+
+// A guessed composed path under a real relation gets its own reasonCode and a pointer at the fix,
+// not the generic unknown-path message. Regression test for the exact real-world case: a run read
+// capability-index/README.md's "don't guess a composed path" section, then guessed ["Type", "Type"]
+// anyway a few steps later.
+const composedRelationPath = lookupCapability(index, { source: 'supplier', columns: [['Type', 'Type']] });
+assert.equal(composedRelationPath.semantic.reasonCode, 'composed-relation-path');
+assert(composedRelationPath.semantic.explanation.includes('"Type"'), 'the explanation must name the relation that was guessed against');
+assert.equal(composedRelationPath.maximumPermittedNextState, 'idea');
+
+// Company is also a real relation on supplier, so the same detection applies to any composed guess.
+const composedRelationPathCompany = lookupCapability(index, { source: 'supplier', columns: [['Company', 'Name']] });
+assert.equal(composedRelationPathCompany.semantic.reasonCode, 'composed-relation-path');
 
 // Path labels must match case-insensitively, the same way source names already do — a customer
 // request that title-cases a label ("Account Number") must resolve against the corpus's stored

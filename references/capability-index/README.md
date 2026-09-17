@@ -96,18 +96,20 @@ that composition pre-flattened. A few do — `Country` is one, where
 `["Country", "Code"]` already exists directly in the parent source's own
 options — but that's the exception, not something to assume.
 
-Before guessing, check cheaply: look at the *same* source's own option list
-(you already have it from the lookup) for any existing path whose first
-element matches the relation's label, the way `Country.Code` exists inline
-in a source that has one. If nothing like that is there, the composed path
-genuinely doesn't exist in the corpus for the lookup to confirm — stop
-querying the lookup for it. That field is resolved by drilling into the
-relation live in the wizard's hierarchical picker (see
-`../ui-doctrine/wizard-flows.md`), not by finding the right string to feed
-this tool. Querying the *related* source on its own (e.g. `supplierType`
-for `supplier`'s `Type` relation) tells you the field exists and is
-semantically valid — it does not give you a path string the lookup will
-accept for the original source, because there isn't one to give it.
+**The lookup catches this guess itself, not just this paragraph.** If a
+requested path is longer than one segment and its first segment names a real
+relation on that source, the result comes back with `reasonCode:
+"composed-relation-path"` — a distinct code from plain `"unknown-path"` —
+and an explanation naming exactly which relation was guessed against and
+what to do instead. Treat that reasonCode as the tool telling you to stop:
+don't retry with a different guessed composition, and don't keep querying
+the lookup for it. That field is resolved by drilling into the relation live
+in the wizard's hierarchical picker (see `../ui-doctrine/wizard-flows.md`),
+not by finding the right string to feed this tool. Querying the *related*
+source on its own (e.g. `supplierType` for `supplier`'s `Type` relation)
+tells you the field exists and is semantically valid — it does not give you
+a path string the lookup will accept for the original source, because
+there isn't one to give it.
 
 Evidence locators are structured JSON objects and must resolve exactly once.
 Seed-widget recipes (`../domain/seed-widgets/recipe-catalogue.json`) are

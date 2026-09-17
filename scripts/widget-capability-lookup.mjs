@@ -88,8 +88,24 @@ export function lookupCapability(index, request) {
     const ambiguous = matches.find(options => options.length > 1);
     const container = selected.find(option => option?.className === 'RelationOption');
     const missing = selected.some(option => !option);
+    // A missing path longer than one segment whose first segment names a real relation on this
+    // source (e.g. ["Type", "Type"]) is someone guessing a composed drill-down path, not a
+    // genuinely unknown field — the corpus rarely pre-flattens that composition onto the parent
+    // source. This guess is common enough (it's the natural next move after a container-only-path
+    // verdict) that it earns its own reasonCode and a pointer straight at the fix, rather than the
+    // generic unknown-path message — see capability-index/README.md's container-only-path section.
+    const guessedComposedPath = !ambiguous && !container && requestedPaths.find((path, index) =>
+        !selected[index] && path.length > 1
+        && source.options.some(option => option.path.length === 1 && option.className === 'RelationOption' && option.path[0].toLowerCase() === path[0].toLowerCase()));
     const semantic = missing || container || ambiguous
-        ? verdict('unsupported', ambiguous ? 'ambiguous-path' : container ? 'container-only-path' : 'unknown-path', 'A requested path is not a uniquely selectable terminal capability.', ['Do not invent a terminal relationship path.'])
+        ? verdict(
+            'unsupported',
+            ambiguous ? 'ambiguous-path' : container ? 'container-only-path' : guessedComposedPath ? 'composed-relation-path' : 'unknown-path',
+            guessedComposedPath
+                ? `"${guessedComposedPath[0]}" is a relation on this source, not a container the corpus pre-flattens — a composed path like ${JSON.stringify(guessedComposedPath)} does not exist for the lookup to confirm. Query the related source's own options to confirm the field exists, then resolve it live in the wizard's hierarchical picker. Stop guessing composed paths against this source.`
+                : 'A requested path is not a uniquely selectable terminal capability.',
+            ['Do not invent a terminal relationship path.'],
+        )
         : verdict('supported', 'resolved-paths', 'The requested report paths resolve in the authority corpus.', [], selected.map(option => option.evidence));
     const host = normalized.host && index.hosts.find(item => item.hostId === normalized.host.hostId);
     const hostContext = semantic.status !== 'supported'
