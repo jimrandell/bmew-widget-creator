@@ -5,6 +5,13 @@ import { generateCapabilityIndex, resolveEvidenceLocator, validateGeneratedIndex
 const index = validateGeneratedIndex(await generateCapabilityIndex());
 assert(index.sources.length > 0);
 assert(index.hosts.length > 0);
+// Regression test for a bug where every host's route came back null: value.routes[0] is a literal
+// source string (quoted with ', " or a template-literal `), not an object with its own .route
+// property, so `value.routes?.[0]?.route` always read undefined off a string.
+assert(index.hosts.every(host => typeof host.route === 'string' && host.route.length > 0), 'every host must have a non-empty route extracted');
+assert(index.hosts.every(host => !/^['"`]|['"`]$/.test(host.route)), 'a route must not carry its source quote character');
+const supplierHost = index.hosts.find(host => host.hostId === 'H103');
+assert.equal(supplierHost?.route, '/purchasing/suppliers');
 assert(index.surfaces.some(surface => surface.surfaceId === 'my-desk-widget-authoring'));
 assert(index.surfaces.some(surface => surface.surfaceId === 'detail-page-widget-authoring' && surface.families.length === 0), 'detail-page must not claim family coverage it has not earned');
 assert.equal(index.sourceIdentities.length, 8);

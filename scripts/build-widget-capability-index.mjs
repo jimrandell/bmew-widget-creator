@@ -35,7 +35,14 @@ function sourceRecords(corpus) {
 function hostRecords(hosts) {
     const records = [];
     for (const match of hosts.matchAll(/^#### (H\d+) '([^']+)'\s*\n\s*`{3,}json\s*\n([\s\S]*?)\n`{3,}/gm)) {
-        try { const value = JSON.parse(match[3]); records.push({ hostId: match[1], name: match[2], route: value.routes?.[0]?.route ?? null, evidence: locator(inputs[1], 'host', { hostId: match[1] }) }); } catch { /* source validation will surface malformed evidence */ }
+        try {
+            const value = JSON.parse(match[3]);
+            // value.routes is an array of literal source strings (e.g. "'/purchasing/suppliers'" or,
+            // where the source used a template literal, "`/company/.../:absence`"), not objects —
+            // unwrap whichever quote character wraps the first entry.
+            const route = typeof value.routes?.[0] === 'string' ? value.routes[0].replace(/^['"`]|['"`]$/g, '') : null;
+            records.push({ hostId: match[1], name: match[2], route, evidence: locator(inputs[1], 'host', { hostId: match[1] }) });
+        } catch { /* source validation will surface malformed evidence */ }
     }
     return records;
 }
