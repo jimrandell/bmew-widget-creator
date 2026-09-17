@@ -97,12 +97,22 @@ requires an explicitly requested refresh — never rebuild it automatically or
 speculatively; see
 [`references/maintenance/refresh-work-order.md`](references/maintenance/refresh-work-order.md).
 That freshness check re-reads and re-hashes both multi-thousand-line evidence
-files, so it isn't free — **ask every capability question a request needs in
-one script, inside one `createCapabilityLookupSession()`, not one shell
-invocation per question.** Each separate `node` call is a fresh process: it
-pays that hashing cost again and starts with an empty cache, so the session's
-own caching never gets a chance to help across questions that could have
-shared one.
+files, so it isn't free.
+
+**One script. One `node` process. For the whole investigation, not one
+question.** This has already failed too: told to batch, a run instead wrote
+five separate throwaway scripts back to back (`_explore.mjs`, `_explore2.mjs`,
+`_explore3.mjs`, `_explore4.mjs`, `_lookup.mjs`) — five fresh processes, five
+full re-hashes of both evidence files, for one widget's worth of questions.
+Writing a small script, running it, then writing the next one based on what
+you learned *feels* like normal iterative work — it is exactly the pattern to
+stop doing here. Create one script file per request, inside one
+`createCapabilityLookupSession()`. When a result raises a follow-up question,
+**edit that same file and rerun it** — don't create a second one. If you
+already pulled a host or source record from the index once in this
+investigation, that record is the answer; don't re-fetch the same thing from
+raw evidence a few steps later because you've lost track of having asked
+already.
 
 Go to the domain evidence itself only *after* the lookup reports ambiguity
 or unsupported facts, or when preparing an export/build artifact — never
@@ -112,6 +122,12 @@ Both `report-widget-construction-corpus.md` and
 record (`### Source <Name>` and `#### H<N> '<Name>'` respectively): search
 for the specific heading and read that section. Reading either file in full
 is rarely necessary and spends context budget a long session can't get back.
+Chasing what a table column's flag letters (`L`, `C`, `S`, `G`, `V`, ...)
+individually mean is one specific version of this to catch yourself doing:
+no legend for them exists in the evidence, hunting for one is a dead end,
+and it's never necessary — a `supported` semantic verdict already means the
+path is a valid, selectable column; the flags aren't part of what the lookup
+needs to tell you that.
 Lookup output cannot prove browser configuration, `Finish`, persistence,
 saving, or target-page verification.
 

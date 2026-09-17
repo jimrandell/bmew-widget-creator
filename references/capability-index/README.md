@@ -41,6 +41,15 @@ questions" section for why that matters.
 
 ## What a result contains
 
+A `semantic.status` of `supported` is the whole answer for "can I use this
+column" — it means the path resolved to one unique, terminal option in the
+corpus. The result does not, and doesn't need to, echo that option's
+`className`, `flags`, or `filterMap` back to you; those are implementation
+detail the corpus records for provenance, not something you need to decode
+to pick a column. Don't go looking for what the flag letters mean — there's
+no legend for them in the evidence, and a `supported` verdict already told
+you what you needed to know.
+
 Results separate three axes:
 
 - **`semantic`** — does the requested report source/path/relation actually
