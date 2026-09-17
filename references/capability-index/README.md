@@ -23,6 +23,22 @@ index.** A stale index is a safe stop until you explicitly rerun
 speculatively; rebuild only when the person asks for a refresh (see
 `../maintenance/refresh-work-order.md`).
 
+## Looking up a host by name
+
+A host's `hostId` (`H001`, `H002`, ...) is an opaque sequence number, not a
+derived slug — it never contains the entity's name, so filtering `hostId`
+for a substring like `supplier` will always come back empty. Match on
+`name` instead:
+
+```js
+const index = JSON.parse(await readFile(outputPath, 'utf8'));
+const host = index.hosts.find(h => h.name === 'suppliersList');
+```
+
+Do this inside the same `createCapabilityLookupSession()` script as your
+other questions for the request — see `SKILL.md`'s "Fast capability
+questions" section for why that matters.
+
 ## What a result contains
 
 Results separate three axes:

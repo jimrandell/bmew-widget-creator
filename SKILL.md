@@ -96,6 +96,13 @@ before every result. A stale or unavailable index is a safe stop that
 requires an explicitly requested refresh — never rebuild it automatically or
 speculatively; see
 [`references/maintenance/refresh-work-order.md`](references/maintenance/refresh-work-order.md).
+That freshness check re-reads and re-hashes both multi-thousand-line evidence
+files, so it isn't free — **ask every capability question a request needs in
+one script, inside one `createCapabilityLookupSession()`, not one shell
+invocation per question.** Each separate `node` call is a fresh process: it
+pays that hashing cost again and starts with an empty cache, so the session's
+own caching never gets a chance to help across questions that could have
+shared one.
 
 Go to the domain evidence itself only *after* the lookup reports ambiguity
 or unsupported facts, or when preparing an export/build artifact — never
