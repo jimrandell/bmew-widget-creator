@@ -14,14 +14,24 @@ One artifact, one home.
 authoritative; this index exists so you don't have to grep 120k lines of
 Markdown for every question.
 
-Run `node scripts/widget-capability-lookup.mjs <request.json>` (or call
-`createCapabilityLookupSession()`/`lookupCapability()` directly) for a
+Run `node scripts/widget-capability-lookup.mjs <request.json>` for a
 structured request. The lookup checks every authority-input's freshness and
 the `generatorProtocolVersion` before returning a result. **It never rebuilds
 the index.** A stale index is a safe stop until you explicitly rerun
 `build-widget-capability-index.mjs` — never rebuild it automatically or
 speculatively; rebuild only when the person asks for a refresh (see
 `../maintenance/refresh-work-order.md`).
+
+**`<request.json>` can be a JSON array of requests, not just one.** Every
+request in the array is answered in that same single process, against one
+freshness check — not one `node` invocation per question. Put every question
+for one investigation into one array and run the script once, rather than
+writing a series of small ad-hoc scripts as questions occur to you. If a
+follow-up question occurs to you after seeing a result, add it to the same
+array and rerun — don't start a second file. (Calling
+`createCapabilityLookupSession()`/`lookupCapability()` directly from your own
+script also works and shares the same per-session freshness caching, but the
+CLI above needs no script-writing at all — reach for it first.)
 
 ### `-alt`: this variant's freshness check is size/mtime, not a content hash
 
@@ -66,6 +76,15 @@ other questions for the request — see `SKILL.md`'s "Fast capability
 questions" section for why that matters.
 
 ## What a result contains
+
+A `semantic.status` of `supported` is the whole answer for "can I use this
+column" — it means the path resolved to one unique, terminal option in the
+corpus. The result does not, and doesn't need to, echo that option's
+`className`, `flags`, or `filterMap` back to you; those are implementation
+detail the corpus records for provenance, not something you need to decode
+to pick a column. Don't go looking for what the flag letters mean — there's
+no legend for them in the evidence, and a `supported` verdict already told
+you what you needed to know.
 
 Results separate three axes:
 
