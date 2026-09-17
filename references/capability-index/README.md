@@ -84,6 +84,31 @@ Results separate three axes:
 `maximumPermittedNextState` is a ceiling, never evidence that browser
 configuration, saving, or target-page verification actually occurred.
 
+## A `container-only-path` verdict: don't guess a composed path
+
+A relation column (`Type`, `Bank`, `Company`, ...) always comes back
+`container-only-path` — that's correct, it isn't a selectable terminal field
+by itself. The natural next move is to guess the drilled-in path as a
+two-element array, e.g. `["Type", "Type"]` — **don't.** The lookup answers
+questions about one source's own option list; it does not compose a relation
+with a field from the entity it points to, because most sources don't carry
+that composition pre-flattened. A few do — `Country` is one, where
+`["Country", "Code"]` already exists directly in the parent source's own
+options — but that's the exception, not something to assume.
+
+Before guessing, check cheaply: look at the *same* source's own option list
+(you already have it from the lookup) for any existing path whose first
+element matches the relation's label, the way `Country.Code` exists inline
+in a source that has one. If nothing like that is there, the composed path
+genuinely doesn't exist in the corpus for the lookup to confirm — stop
+querying the lookup for it. That field is resolved by drilling into the
+relation live in the wizard's hierarchical picker (see
+`../ui-doctrine/wizard-flows.md`), not by finding the right string to feed
+this tool. Querying the *related* source on its own (e.g. `supplierType`
+for `supplier`'s `Type` relation) tells you the field exists and is
+semantically valid — it does not give you a path string the lookup will
+accept for the original source, because there isn't one to give it.
+
 Evidence locators are structured JSON objects and must resolve exactly once.
 Seed-widget recipes (`../domain/seed-widgets/recipe-catalogue.json`) are
 never index inputs or semantic authority — they're worked examples, not
