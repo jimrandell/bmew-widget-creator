@@ -79,7 +79,9 @@ If the choice is unclear, ask the customer to reply with one of the four numbere
 
 ## Customer preview
 
-Describe the requested widget in Markdown: intended page/context, title, widget family, data to show, filters, sorting/grouping/chart or summary behavior, and any unresolved requirement. Validate static report capability and bounded host eligibility from shared evidence before claiming a choice is supported.
+Describe the requested widget in Markdown: intended page/context, title, widget family, data to show, filters, sorting/grouping/chart or summary behavior, and any unresolved requirement. Validate static report capability and bounded host eligibility from shared evidence before claiming a choice is supported. Show this preview as a normal part of the conversation whenever the widget's definition is complete enough to preview — never wait for the customer to ask to see one.
+
+For any widget that shows rows (List, Chart, Summary's supporting list, each Tabbed-list tab), include a small illustrative data table as part of the preview, not just a description of the columns — a column list alone doesn't show the customer what the widget will actually look like. Show at least three, and no more than five, example rows shaped to the actual columns, filters, and sort order the customer chose. Invent plausible values consistent with each column's real data type (a name that reads like a real company name, a status that's one of the field's real values where known, a date in the expected format) — this is illustrative content, not lorem ipsum, and not a captured record. Label the table clearly as an example, once, immediately next to it (for example "Example data — not your actual records") and never let invented rows read as though they came from BMEW.
 
 Keep technical SQL and configuration JSON inside a Computech support bundle, not in chat. Static capability facts cannot be guessed or replaced with placeholders.
 
