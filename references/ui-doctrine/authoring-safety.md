@@ -44,6 +44,33 @@ partially proven (detail-page, currently) or a family as unconfirmed on a
 given surface, verify more carefully, not less — you're in territory nobody
 has watched happen yet.
 
+## Choose the cheaper way to verify, and don't batch across a branch point
+
+Two different things count as "checking what happened": a structural read of
+the page (an accessibility-tree read, or a natural-language element search)
+and a screenshot. The structural read is usually far cheaper and is what
+this wizard's dialogs support well — reach for it first. Reserve a
+screenshot for a genuinely visual question (how something is laid out or
+rendered, a chart, a virtualized list) or for a state `wizard-flows.md`
+hasn't documented, where there's no known label to search for and a wider
+look is the only option.
+
+When you do a structural read, search for the exact instruction text, dialog
+title, or field label `wizard-flows.md` already records for that state — for
+example `Set the data source for the widget`, `Choose column`, or `Selected
+data source:` — rather than guessing at wording. It already carries what a
+correct state actually says; use that as the search target instead of
+rediscovering it each time.
+
+Taking several actions in one turn before checking anything is safe only for
+a fixed, non-branching sequence — one where nothing between the actions can
+change what the next one should target. Most of this wizard is the opposite:
+selecting a relation opens a new picker column one level deeper, some menu
+items only reveal themselves on hover, and `Next` on Data source and Summary
+data stays disabled until a value is set. Verify individually across any of
+those. Batch only a run of independent, already-visible controls — for
+instance, a few Customize fields that don't affect one another.
+
 ## `Finish` requires explicit, named authorization
 
 `Finish` (and the equivalent terminal action on any dialog) is permitted only
