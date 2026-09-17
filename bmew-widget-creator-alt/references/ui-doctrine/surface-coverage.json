@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Records which BMEW widget-authoring surfaces have directly-observed wizard-flow doctrine in wizard-flows.md, and for which widget families. Consumed by build-widget-capability-index.mjs to answer the browser-authoring axis of a capability lookup. Status is per-surface, not per-family within a surface — where a surface's proof is thinner than 'the whole flow for every family', that is called out explicitly in its note field and in wizard-flows.md; do not infer full coverage from a 'live-proven' status alone.",
+  "surfaces": [
+    {
+      "surfaceId": "entity-dashboard-widget-authoring",
+      "sourceContext": "entity-dashboard",
+      "status": "live-proven",
+      "families": ["ListView", "SummaryView", "DynamicListView", "DynamicView"],
+      "doctrineSection": "wizard-flows.md#entity-dashboard"
+    },
+    {
+      "surfaceId": "my-desk-widget-authoring",
+      "sourceContext": "my-desk",
+      "status": "live-proven",
+      "families": ["ListView", "SummaryView", "DynamicView"],
+      "doctrineSection": "wizard-flows.md#my-desk",
+      "note": "Fixed-list Data-source selection, Filters add-menu, and the persistence workaround are directly observed. Summary and Dynamic-window on this surface are proven only as far as their shared rail states; see wizard-flows.md."
+    },
+    {
+      "surfaceId": "detail-page-widget-authoring",
+      "sourceContext": "detail-page",
+      "status": "partially-proven",
+      "families": [],
+      "doctrineSection": "wizard-flows.md#detail-page",
+      "note": "Only the contextual Data-source picker mechanics and the route/current-record precondition are observed. No family's configuration flow beyond source selection has been proven on this surface. families is deliberately empty: do not treat any family as browser-covered here."
+    },
+    {
+      "surfaceId": "tabbed-list-add-tab",
+      "sourceContext": "entity-dashboard",
+      "status": "live-proven",
+      "families": ["DynamicListView"],
+      "doctrineSection": "wizard-flows.md#tabbed-list-add-tab",
+      "note": "Covers appending one tab to an existing Tabbed-list widget via its local Add tab menu entry only. Does not cover creating the outer Tabbed-list wrapper itself, which falls under entity-dashboard-widget-authoring."
+    },
+    {
+      "surfaceId": "cards-and-charts",
+      "sourceContext": "shared",
+      "status": "deferred",
+      "families": [],
+      "doctrineSection": null,
+      "note": "Cards and Charts are excluded from scope entirely (see SKILL.md). This row exists so a lookup against them returns an explicit deferred verdict instead of an absent-surface miss."
+    }
+  ]
+}

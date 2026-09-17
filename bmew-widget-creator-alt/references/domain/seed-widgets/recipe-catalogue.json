@@ -1,0 +1,1550 @@
+{
+  "schemaVersion": 1,
+  "generatorProtocolVersion": "1",
+  "seedInputs": [
+    {
+      "inputPath": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+      "sha256": "424bc761047a6b9017fdf4aeeb889b2ae8e9479be0c21ca248fe651e3e84936b"
+    },
+    {
+      "inputPath": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+      "sha256": "364682ce22dc6b4d81e19e149fcb24e64fb6a06c6d93bbf95e9fb7f1e7e4973c"
+    }
+  ],
+  "inclusionRule": "ListView, ChartView, SummaryView, and DynamicListView only; cards, DynamicView, and unrecognised items are excluded.",
+  "counts": {
+    "inputRecords": 125,
+    "includedRecipes": 127,
+    "excluded": {
+      "card": 311,
+      "dynamicWindow": 2,
+      "other": 0
+    }
+  },
+  "recipes": [
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1015
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Transactions lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1016
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Supplier remittances lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1017
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Customer remittances lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1018
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Call log statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1018
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Call logs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1018
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Kundel Call Log"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1020
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Cash journals lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1022
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": null
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1022
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": null
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1022
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Consignments lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1022
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "job statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1022
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "job types"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1024
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Contacts lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1026
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Active contracts per manager"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1026
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Service conrtacts lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1029
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Credit note statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1029
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales credit notes lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1031
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Order statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1032
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Transactions lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1033
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Customer statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1033
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Customers lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1034
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales activitiy lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1036
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Projects lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1037
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Customer owened inventory lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1041
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Trading companies lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Accepted quotes by month"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Active jobs"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Active jobs by job type"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Customer status chart"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Customers on hold"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "My customers"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "My jobs"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "My main dynamic list view"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "My supplier invoices"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "My tasks"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Open support tickets"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales by person"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Sales orders by month"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1042
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Sales pipeline analysis"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1045
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Count of department members"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1045
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Departments list"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1046
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Dispatches and returns lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1049
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Divisions list"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Customers"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Customers on hold"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "General Ledger lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Invoice status"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Invoices"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Jobs"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Purchase Orders"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Sales by month"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "SummaryView",
+        "title": "Suppliers"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1050
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Time sheets lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1054
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Staff list"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1055
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Absences lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1055
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Human resouces lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1056
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Absences"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1060
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Job statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1060
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Job types"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1060
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Jobs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1064
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Job costs"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1066
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Invoice statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1066
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales invoices lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1068
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": null
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1068
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales by person"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1069
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Nominal journals lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1071
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "NCR statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1071
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "QA/NCR lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1074
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Opportunities lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1074
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Opportunity statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1075
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Quotes lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1076
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Inventory lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1077
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Alternative SKUs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1079
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Product sales lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1080
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Batches lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1082
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Count of units in consumable / non consumable locations"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1082
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Units lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1083
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": null
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1083
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Count of units in consumable / non consumable locations"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1084
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Projects lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1086
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales order costs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1087
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Jobs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1088
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Purchase orders lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1089
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales orders lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1091
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Prospect statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1091
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Prospects lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1092
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales activity lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1093
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Opportunities lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1093
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Quotes lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1094
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Call logs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1094
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Purchase order statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1096
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Quote statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1096
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Quotes lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1098
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Call logs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1099
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Resources lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1101
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Resource groups lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1103
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Resources skills lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1106
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales deliveries lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1107
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales order returns lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1108
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Sales order statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1108
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales orders lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1109
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Sales order costs lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1110
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Purchase orders lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1112
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Supplier statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1112
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Suppliers lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1113
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Order statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1113
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Purchase orders"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1114
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "All credit notes"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1114
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "All invoices"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1114
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Transactions lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1116
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Supplier invoices lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1118
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Supplier credit note lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1120
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Suppoer tickets lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1120
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Ticket statuses"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1122
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Tasks lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/factory-dashboard-layouts.decoded.jsonl",
+        "id": 1125
+      },
+      "configurationPattern": {
+        "type": "DynamicListView",
+        "title": "Users lists"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 1
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Customer status"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 10
+      },
+      "configurationPattern": {
+        "type": "ListView",
+        "title": "Opportunities"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 14
+      },
+      "configurationPattern": {
+        "type": "ListView",
+        "title": "CallLog"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 2
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Customers by month"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 3
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Quote value by month"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 4
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Sales pipeline analysis"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 5
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Accepted quotes by month"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 6
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Active jobs by job type"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 7
+      },
+      "configurationPattern": {
+        "type": "ListView",
+        "title": "Active customer list"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 8
+      },
+      "configurationPattern": {
+        "type": "ListView",
+        "title": "PO approval process"
+      },
+      "notSemanticAuthority": true
+    },
+    {
+      "provenance": "captured-stock-configuration",
+      "seedSourceRecord": {
+        "file": "references/domain/seed-widgets/widget-templates.decoded.jsonl",
+        "id": 9
+      },
+      "configurationPattern": {
+        "type": "ChartView",
+        "title": "Quote value 2020/21"
+      },
+      "notSemanticAuthority": true
+    }
+  ]
+}

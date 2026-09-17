@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "generatorProtocolVersion",
+    "authorityInputs",
+    "sources",
+    "sourceIdentities",
+    "hosts",
+    "contracts"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "generatorProtocolVersion": {
+      "type": "string"
+    },
+    "authorityInputs": {
+      "type": "array"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "sourceIdentities": {
+      "type": "array"
+    },
+    "hosts": {
+      "type": "array"
+    },
+    "contracts": {
+      "type": "array"
+    }
+  }
+}
