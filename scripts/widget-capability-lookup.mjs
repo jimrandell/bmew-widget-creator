@@ -81,7 +81,7 @@ export function lookupCapability(index, request) {
     const selected = matches.map(options => options[0]);
     const ambiguous = matches.find(options => options.length > 1);
     const container = selected.find(option => option?.className === 'RelationOption');
-    const missing = selected.find(option => !option);
+    const missing = selected.some(option => !option);
     const semantic = missing || container || ambiguous
         ? verdict('unsupported', ambiguous ? 'ambiguous-path' : container ? 'container-only-path' : 'unknown-path', 'A requested path is not a uniquely selectable terminal capability.', ['Do not invent a terminal relationship path.'])
         : verdict('supported', 'resolved-paths', 'The requested report paths resolve in the authority corpus.', [], selected.map(option => option.evidence));

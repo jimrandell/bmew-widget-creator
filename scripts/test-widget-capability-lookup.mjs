@@ -37,6 +37,20 @@ const container = lookupCapability(index, { source: 'customer', columns: [['Bank
 assert.equal(container.semantic.reasonCode, 'container-only-path');
 assert.equal(container.maximumPermittedNextState, 'idea');
 
+// A path with zero matches (not ambiguous, not a container) must report unknown-path, not throw.
+// Regression test for a bug where `selected.find(option => !option)` returned the found `undefined`
+// itself, which is falsy, so a genuinely missing option was treated as "nothing missing" and the
+// code fell through to `selected.map(option => option.evidence)`, crashing on the undefined entry.
+const unknownPath = lookupCapability(index, { source: 'supplier', columns: [['Company', 'Name']] });
+assert.equal(unknownPath.semantic.reasonCode, 'unknown-path');
+assert.equal(unknownPath.maximumPermittedNextState, 'idea');
+
+// Same bug, but mixed with otherwise-valid paths — the exact shape that originally crashed.
+const unknownPathMixed = lookupCapability(index, {
+    source: 'supplier', columns: [['Company', 'Name'], ['Alias'], ['Account number']],
+});
+assert.equal(unknownPathMixed.semantic.reasonCode, 'unknown-path');
+
 const protocolMismatch = await validateIndexFreshness({ ...index, generatorProtocolVersion: 'wrong' });
 assert.deepEqual(protocolMismatch, { ok: false, reason: 'generator-protocol-mismatch' });
 const missingInput = await validateIndexFreshness(index, async () => { throw new Error('missing'); });
