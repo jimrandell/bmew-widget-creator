@@ -94,6 +94,28 @@ you've also satisfied the screenshot rule. Verifying individually per step
 and verifying *cheaply* per step are two different disciplines; the wizard
 needs both.
 
+## Navigate directly to a known dashboard; never guess a detail-page URL
+
+[`navigation-routes.md`](navigation-routes.md) lists a small, hand-picked set
+of dashboard routes that are safe to navigate to directly. When the person's
+request targets one of them, combine the route with the current browser
+tab's own origin and navigate there instead of clicking through menus to
+reach it.
+
+That list contains only dashboard (list) routes, deliberately. A specific
+record's detail page always needs a real target-instance ID in its URL
+(`/purchasing/suppliers/:supplier`), and that ID is not domain evidence —
+it's a target-instance fact this skill has no way to know in advance.
+**Never construct a detail-page URL, and never guess an ID.** Instead:
+navigate to the entity's dashboard from `navigation-routes.md`, then find the
+specific record's row on that dashboard — using the dashboard's own
+search/filter fields when the record isn't on the first visible page — and
+follow its link. The live page already carries the correct ID, so there's
+nothing to construct or guess. The same applies one level further in: a
+detail page's own sub-tabs (Financials, Documents, Contacts, and similar) are
+reached by clicking that page's own tab controls, never by constructing
+their URLs.
+
 ## `Finish` requires explicit, named authorization
 
 `Finish` (and the equivalent terminal action on any dialog) is permitted only

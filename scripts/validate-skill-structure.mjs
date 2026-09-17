@@ -47,6 +47,7 @@ const requiredFiles = [
     'references/ui-doctrine/known-issues.md',
     'references/ui-doctrine/authoring-safety.md',
     'references/ui-doctrine/surface-coverage.json',
+    'references/ui-doctrine/navigation-routes.md',
     'references/maintenance/source-discovery-work-order.md',
     'references/maintenance/refresh-work-order.md',
     'references/maintenance/capture-work-order.md',

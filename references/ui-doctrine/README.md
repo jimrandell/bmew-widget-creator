@@ -17,6 +17,7 @@ directory preserves in plain prose instead:
 | `known-issues.md` | The observed Fixed-list Finish persistence bug and its verified two-stage workaround. |
 | `authoring-safety.md` | The doctrine that survives the deleted admission-gate/runner machinery: plan against the domain evidence first, verify named facts after each step, `Finish` needs explicit authorization plus a checked postcondition, create-new-widget only. This replaces `SKILL.md`'s old "Manual browser-driving gate," which forbade the exact thing agents are now expected to do. |
 | `surface-coverage.json` | Machine-readable version of "which surface/family combinations have actually been observed" — consumed by the capability index's `browserAuthoring` axis (see `../capability-index/README.md`). Keep this in sync with `wizard-flows.md` by hand; nothing regenerates it automatically. |
+| `navigation-routes.md` | A short, hand-picked subset of dashboard routes (no `:parameter`, so no target-instance ID needed) safe to navigate to directly by URL. Deliberately not the full 121-host catalogue in `../domain/non-card-host-and-target-evidence.md` — extend it only when the person asks. |
 
 ## What didn't survive, and why
 
