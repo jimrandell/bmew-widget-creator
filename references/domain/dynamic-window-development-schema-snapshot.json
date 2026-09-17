@@ -1,0 +1,47 @@
+{
+  "provenance": {
+    "environment": "local Development Server Database",
+    "connectionName": "localhost-mariadb-All",
+    "connectionId": "d2f2e8a8-774a-42c2-bbf6-f2d0a37cded9",
+    "database": "businessman",
+    "captureMethod": "quickdb read-only schema and SELECT inspection",
+    "captureScope": "businessman.dynamic_window_configuration"
+  },
+  "table": "dynamic_window_configuration",
+  "columns": [
+    { "name": "id", "type": "bigint(20)", "nullable": false, "default": null, "extra": "auto_increment", "key": "PRI" },
+    { "name": "created", "type": "timestamp(6)", "nullable": false, "default": "current_timestamp(6)", "extra": "", "key": "" },
+    { "name": "user_id", "type": "bigint(20)", "nullable": false, "default": null, "extra": "", "key": "MUL" },
+    { "name": "hash", "type": "char(10)", "nullable": false, "default": null, "extra": "", "key": "", "characterMaximumLength": 10, "characterOctetLength": 40 },
+    { "name": "configuration", "type": "text", "nullable": true, "default": null, "extra": "", "key": "", "characterMaximumLength": 65535, "characterOctetLength": 65535 }
+  ],
+  "indexes": [
+    { "name": "PRIMARY", "unique": true, "type": "BTREE", "columns": ["id"] },
+    { "name": "user_id", "unique": false, "type": "BTREE", "columns": ["user_id", "hash"] }
+  ],
+  "foreignKeys": [
+    {
+      "name": "dynamic_window_configuration_ibfk_1",
+      "column": "user_id",
+      "references": "businessman.application_user.id",
+      "updateRule": "RESTRICT",
+      "deleteRule": "RESTRICT"
+    }
+  ],
+  "rowCount": 1,
+  "duplicateUserIdHashPairs": [],
+  "rows": [
+    {
+      "id": "1",
+      "created": "2026-08-12T12:39:22.261Z",
+      "user_id": "3",
+      "hash": "2aec5a76f6",
+      "configuration": null
+    }
+  ],
+  "limitations": [
+    "This is one local Development Server snapshot, not a universal installation schema claim.",
+    "QuickDB rendered created to millisecond ISO precision; the pre-existing portable snapshot preserves a higher-precision local timestamp representation.",
+    "The existing skill bundle already contains a row-only dynamic_window_configuration snapshot; this artifact adds the Development Server physical schema, indexes, foreign key, count, duplicate check, and current rows."
+  ]
+}

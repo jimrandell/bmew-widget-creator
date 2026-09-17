@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "aliases": [
+    { "relationshipTarget": "AllJobCost", "source": "allJobCosts", "rationale": "The registered relationship model is singular while the literal corpus source heading is plural." },
+    { "relationshipTarget": "Division", "source": "divisions", "rationale": "The registered relationship model is singular while the literal corpus source heading follows the plural configuration directory." },
+    { "relationshipTarget": "InventoryCost", "source": "inventoryCosts", "rationale": "The registered relationship model is singular while the literal corpus source heading is plural." },
+    { "relationshipTarget": "JobTitles", "source": "jobTitle", "rationale": "The registered relationship target is plural while the literal corpus source heading is singular." },
+    { "relationshipTarget": "LabourCost", "source": "labourCosts", "rationale": "The registered relationship model is singular while the literal corpus source heading is plural." },
+    { "relationshipTarget": "ProductSupplier", "source": "productSuppliers", "rationale": "The registered relationship model is singular while the literal corpus source heading is plural." },
+    { "relationshipTarget": "PurchaseOrderItem", "source": "purchaseOrderItems", "rationale": "The registered relationship model is singular while the literal corpus source heading is plural." },
+    { "relationshipTarget": "RecipientProduct", "source": "recipientProducts", "rationale": "The registered relationship model is singular while the literal corpus source heading is plural." }
+  ]
+}
