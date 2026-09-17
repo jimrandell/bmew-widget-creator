@@ -97,22 +97,25 @@ requires an explicitly requested refresh — never rebuild it automatically or
 speculatively; see
 [`references/maintenance/refresh-work-order.md`](references/maintenance/refresh-work-order.md).
 That freshness check re-reads and re-hashes both multi-thousand-line evidence
-files, so it isn't free.
+files — expensive enough that a session now runs it at most once no matter
+how many questions you ask through that session, not once per question.
 
-**One script. One `node` process. For the whole investigation, not one
-question.** This has already failed too: told to batch, a run instead wrote
+**Put every question for one investigation into one `<request.json>` array
+and run `node scripts/widget-capability-lookup.mjs <request.json>` once —
+don't write a script at all if you don't have to.** This has already failed
+before that CLI form existed to reach for: told to batch, a run instead wrote
 five separate throwaway scripts back to back (`_explore.mjs`, `_explore2.mjs`,
-`_explore3.mjs`, `_explore4.mjs`, `_lookup.mjs`) — five fresh processes, five
-full re-hashes of both evidence files, for one widget's worth of questions.
-Writing a small script, running it, then writing the next one based on what
-you learned *feels* like normal iterative work — it is exactly the pattern to
-stop doing here. Create one script file per request, inside one
-`createCapabilityLookupSession()`. When a result raises a follow-up question,
-**edit that same file and rerun it** — don't create a second one. If you
-already pulled a host or source record from the index once in this
-investigation, that record is the answer; don't re-fetch the same thing from
-raw evidence a few steps later because you've lost track of having asked
-already.
+`_explore3.mjs`, `_explore4.mjs`, `_lookup.mjs`) — five fresh processes for
+one widget's worth of questions, because writing a small script, running it,
+then writing the next one based on what you learned *feels* like normal
+iterative work. It's still the pattern to stop doing, and now there's a
+lower-friction correct habit to replace it with: add the next question as
+another entry in the same request array, not a new file. See
+[`references/capability-index/README.md`](references/capability-index/README.md)
+for the array form. If you already pulled a host or source record from the
+index once in this investigation, that record is the answer; don't re-fetch
+the same thing from raw evidence a few steps later because you've lost track
+of having asked already.
 
 Go to the domain evidence itself only *after* the lookup reports ambiguity
 or unsupported facts, or when preparing an export/build artifact — never

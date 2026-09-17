@@ -64,10 +64,16 @@ const read = async (path, encoding) => {
 };
 const session = await createCapabilityLookupSession({ readFile: read });
 const first = await session.lookup({ source: 'customer', columns: [['Account number']] });
+const readsAfterFirst = reads;
+assert(readsAfterFirst > 1, 'The first lookup in a session must load the index and check freshness.');
 const second = await session.lookup({ source: 'customer', columns: [['Account number']] });
 assert.equal(first.cache.hit, false);
 assert.equal(second.cache.hit, true);
-assert(reads > 2, 'Freshness checks must read authority inputs on every lookup.');
+assert.equal(reads, readsAfterFirst, 'A session must load the index and check freshness at most once, not once per lookup() call.');
+
+// A different request in the same session must reuse that one freshness check too, not repeat it.
+const third = await session.lookup({ source: 'supplier', columns: [['Account number']] });
+assert.equal(reads, readsAfterFirst, 'A different request in the same session must not trigger a second freshness check.');
 
 const changedIndex = { ...index, authorityInputs: index.authorityInputs.map((input, position) => position ? input : { ...input, sha256: 'changed' }) };
 const staleSession = await createCapabilityLookupSession({ readFile: async path => String(path).endsWith('capability-index.json') ? JSON.stringify(changedIndex) : readFile(path, 'utf8') });

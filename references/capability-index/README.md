@@ -14,14 +14,25 @@ One artifact, one home.
 authoritative; this index exists so you don't have to grep 120k lines of
 Markdown for every question.
 
-Run `node scripts/widget-capability-lookup.mjs <request.json>` (or call
-`createCapabilityLookupSession()`/`lookupCapability()` directly) for a
+Run `node scripts/widget-capability-lookup.mjs <request.json>` for a
 structured request. The lookup checks every authority-input hash and the
 `generatorProtocolVersion` before returning a result. **It never rebuilds the
 index.** A stale index is a safe stop until you explicitly rerun
 `build-widget-capability-index.mjs` — never rebuild it automatically or
 speculatively; rebuild only when the person asks for a refresh (see
 `../maintenance/refresh-work-order.md`).
+
+**`<request.json>` can be a JSON array of requests, not just one.** Every
+request in the array is answered in that same single process, against one
+freshness check — not one `node` invocation per question. This is the actual
+mechanism behind "ask everything for one investigation in one process": put
+every question you have into one array and run the script once, rather than
+writing a series of small ad-hoc scripts as questions occur to you. If a
+follow-up question occurs to you after seeing a result, add it to the same
+array and rerun — don't start a second file. (Calling
+`createCapabilityLookupSession()`/`lookupCapability()` directly from your own
+script also works and shares the same per-session freshness caching, but the
+CLI above needs no script-writing at all — reach for it first.)
 
 ## Looking up a host by name
 

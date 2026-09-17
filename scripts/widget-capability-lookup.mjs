@@ -104,9 +104,17 @@ export function lookupCapability(index, request) {
 
 export async function createCapabilityLookupSession({ indexPath = outputPath, readFile: read = readFile } = {}) {
     const cache = new Map();
-    return { async lookup(request) {
+    // Load the index and check freshness at most once per session, not once per lookup() call — the
+    // freshness check re-hashes both multi-thousand-line evidence files, and nothing inside one
+    // session's lifetime can make that check's answer change partway through.
+    let loaded = null;
+    const load = () => loaded ??= (async () => {
         const index = JSON.parse(await read(indexPath, 'utf8'));
         const freshness = await validateIndexFreshness(index, read);
+        return { index, freshness };
+    })();
+    return { async lookup(request) {
+        const { index, freshness } = await load();
         if (!freshness.ok) return {
             semantic: verdict('unavailable', freshness.reason, 'The capability index is stale or incompatible; request an explicit refresh.'),
             hostContext: verdict('unavailable', freshness.reason, 'No result is served from stale evidence.'),
@@ -120,4 +128,23 @@ export async function createCapabilityLookupSession({ indexPath = outputPath, re
         cache.set(key, result);
         return { ...result, cache: { hit: false } };
     } };
+}
+
+// CLI entrypoint: node widget-capability-lookup.mjs <request.json>
+// <request.json> is either one structured request object, or a JSON array of them — every request
+// in the array is answered in this one process, against one freshness check, not one process each.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+    const requestPath = process.argv[2];
+    if (!requestPath) {
+        process.stderr.write('Usage: node widget-capability-lookup.mjs <request.json>\n');
+        process.stderr.write('<request.json>: one request object, or a JSON array of them to answer together.\n');
+        process.exitCode = 1;
+    } else {
+        const parsed = JSON.parse(await readFile(requestPath, 'utf8'));
+        const requests = Array.isArray(parsed) ? parsed : [parsed];
+        const session = await createCapabilityLookupSession();
+        const results = [];
+        for (const request of requests) results.push(await session.lookup(request));
+        process.stdout.write(`${JSON.stringify(Array.isArray(parsed) ? results : results[0], null, 2)}\n`);
+    }
 }
