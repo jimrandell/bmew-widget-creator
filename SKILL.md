@@ -81,8 +81,14 @@ before every result. A stale or unavailable index is a safe stop that
 requires an explicitly requested refresh — never rebuild it automatically or
 speculatively; see
 [`references/maintenance/refresh-work-order.md`](references/maintenance/refresh-work-order.md).
-Read the full domain evidence directly only when the lookup reports
-ambiguity or unsupported facts, or when preparing an export/build artifact.
+Go to the domain evidence itself only when the lookup reports ambiguity or
+unsupported facts, or when preparing an export/build artifact — and even
+then, read only the relevant record, not the whole file. Both
+`report-widget-construction-corpus.md` and
+`non-card-host-and-target-evidence.md` are organized as one heading per
+record (`### Source <Name>` and `#### H<N> '<Name>'` respectively): search
+for the specific heading and read that section. Reading either file in full
+is rarely necessary and spends context budget a long session can't get back.
 Lookup output cannot prove browser configuration, `Finish`, persistence,
 saving, or target-page verification.
 
