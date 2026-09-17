@@ -51,6 +51,14 @@ const unknownPathMixed = lookupCapability(index, {
 });
 assert.equal(unknownPathMixed.semantic.reasonCode, 'unknown-path');
 
+// Path labels must match case-insensitively, the same way source names already do — a customer
+// request that title-cases a label ("Account Number") must resolve against the corpus's stored
+// casing ("Account number") on the first try, not fail and force a second round-trip.
+const caseInsensitive = lookupCapability(index, { source: 'supplier', columns: [['Account Number'], ['STATUS']] });
+assert.equal(caseInsensitive.semantic.status, 'supported');
+// Evidence must still cite the option's real corpus-cased path, never the request's casing.
+assert.deepEqual(caseInsensitive.semantic.evidence.map(e => e.path), [['Account number'], ['Status']]);
+
 const protocolMismatch = await validateIndexFreshness({ ...index, generatorProtocolVersion: 'wrong' });
 assert.deepEqual(protocolMismatch, { ok: false, reason: 'generator-protocol-mismatch' });
 const missingInput = await validateIndexFreshness(index, async () => { throw new Error('missing'); });

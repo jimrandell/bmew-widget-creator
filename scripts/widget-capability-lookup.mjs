@@ -46,7 +46,13 @@ export async function validateIndexFreshness(index, read = readFile) {
 function verdict(status, reasonCode, explanation, negativeConstraints = [], evidence = []) {
     return { status, reasonCode, explanation, negativeConstraints, evidence };
 }
-function samePath(left, right) { return JSON.stringify(left) === JSON.stringify(right); }
+// Case-insensitive, the same way source names already are (request.source.toLowerCase()) — a
+// requested label like "Account Number" must resolve against the corpus's stored "Account number"
+// without a failed round-trip first. Evidence still cites the option's real corpus-cased path, not
+// the request's casing, since evidence comes from the matched option, never from the request itself.
+function samePath(left, right) {
+    return left.length === right.length && left.every((label, index) => label.toLowerCase() === right[index].toLowerCase());
+}
 function optionsFor(source, path) { return source.options.filter(option => samePath(option.path, path)); }
 
 function browserVerdict(index, browser) {
