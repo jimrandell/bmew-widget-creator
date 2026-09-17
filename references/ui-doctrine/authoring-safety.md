@@ -80,19 +80,50 @@ rediscovering it each time.
 
 ## Don't batch across a branch point
 
-Taking several actions in one turn before checking anything is safe only for
-a fixed, non-branching sequence — one where nothing between the actions can
-change what the next one should target. Most of this wizard is the opposite:
-selecting a relation opens a new picker column one level deeper, some menu
-items only reveal themselves on hover, and `Next` on Data source and Summary
-data stays disabled until a value is set. Verify individually across any of
-those. Batch only a run of independent, already-visible controls — for
-instance, a few Customize fields that don't affect one another.
+**"Verify individually" and "act individually" are not the same rule — don't
+conflate them.** Verifying individually means checking the outcome of a step
+before trusting it. Acting individually means one tool call per action.
+Batching a click immediately followed by typing into that same field, then
+verifying the end state once, satisfies the first without needing the
+second — the click and the type aren't two separate facts to confirm, the
+typed value ending up in the field is one fact, checked once.
 
-This is a separate rule from the one above — don't satisfy it and assume
-you've also satisfied the screenshot rule. Verifying individually per step
-and verifying *cheaply* per step are two different disciplines; the wizard
-needs both.
+A **branch point** is a step where what happens next depends on what just
+rendered: opening a picker, selecting a relation (which opens a new picker
+column one level deeper), a menu item that only reveals itself on hover, or
+`Next` staying disabled until a value is set. Those need to be single,
+unbatched steps, verified individually, because you can't know the next
+target until you've seen the result. A run of already-visible controls where
+nothing in between can change what comes next — a single field's
+click-then-type, a few independent Customize fields — is **not** a branch
+point, and batching it is the textbook case this rule exists to permit, not
+an exception to weigh case by case.
+
+This has been gotten backwards in practice: told to verify every step
+individually, a run defaulted to *acting* one call at a time too, including
+on a single already-visible `Title` field with no branch point in it at all
+— roughly ten separate round trips to click, type, and confirm one field,
+with the browser tool itself suggesting a batched call after nearly every
+one of them and that suggestion going unused each time. If the tool is
+telling you a sequence can be batched, that's not a hint to weigh — take it,
+unless you can name the specific branch point that makes this instance
+different from the general case.
+
+This is a separate rule from the screenshot one above — don't satisfy one
+and assume you've also satisfied the other. Verifying individually per step
+and batching the *actions* that have no branch point between them are two
+different, compatible disciplines; the wizard needs both at once, not one
+traded for the other.
+
+## Selecting a field's existing text: triple-click, not cmd+a
+
+`cmd+a` / `ctrl+a` is not reliable as "select all" inside this browser
+environment — it can type a literal `a` into the field instead of selecting
+its contents, silently corrupting whatever was already there (`Supplier-Test`
+became `aSupplier-Test` this way once, and took four or five extra round
+trips to notice and recover from). Triple-click the field to select its
+existing text before typing a replacement; that's the reliable default here,
+not a fallback to reach for after `cmd+a` fails.
 
 ## Navigate directly to a known dashboard; never guess a detail-page URL
 
@@ -116,22 +147,32 @@ detail page's own sub-tabs (Financials, Documents, Contacts, and similar) are
 reached by clicking that page's own tab controls, never by constructing
 their URLs.
 
-## `Finish` requires explicit, named authorization
+## `Finish` is authorized once, by the approved plan — not per click
 
-`Finish` (and the equivalent terminal action on any dialog) is permitted only
-when:
+The person's approval of the reviewed plan (the normal "shall I go ahead and
+build this" confirmation) is standing authorization for every `Finish`
+needed to build that exact plan — including the same-run corrective `Finish`
+under the Fixed-list persistence workaround (`known-issues.md`). Creating a
+widget is a reversible action; the person can remove it if it isn't right.
+Once the plan is approved, drive the wizard through to completion in one go:
+don't pause to ask whether to click `Finish`, and don't pause after the
+placeholder-persistence check to ask whether to continue with the documented
+reopen-and-reapply step. Asking again at either point is exactly the friction
+this rule exists to remove.
 
-1. the person has given **explicit, specific** authorization for that exact
-   Finish — not a general "go ahead and set this up," but authorization tied
-   to the reviewed plan you're about to commit; and
-2. you check a named postcondition afterward: the dialog actually closed,
-   *and* specific page evidence confirms the widget exists in the expected
-   state (not just "no error was thrown").
+Still check a named postcondition after every `Finish`: the dialog actually
+closed, *and* specific page evidence confirms the widget exists in the
+expected state (not just "no error was thrown"). And `known-issues.md`'s one
+genuine stop condition still applies as a stop, not a routine step: if the
+placeholder column does not persist even under the documented workaround,
+that's unresolved, unexpected application behavior — stop and report it to
+the person rather than retrying blindly. Everything else in a documented,
+working sequence runs through without a check-in.
 
 `Create` is not an observed terminal wizard action anywhere in this
 skill's evidence — don't treat it as equivalent to `Finish`.
 
-This gate applies to browser mutation only. It does not relax or replace the
+This is about browser mutation only. It does not relax or replace the
 separate, always-on constraints in `SKILL.md`: no SQL, no database
 connection, no deployment, and the existing offline preview/export route
 (`../domain/export-contract.md`) stays entirely separate from — and
