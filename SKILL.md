@@ -67,24 +67,40 @@ opening any menu; a zero or multiple match is a stop, not a guess.
 
 ## Fast capability questions
 
-For an ordinary capability question, translate the supplied facts into the
-structured request accepted by
+**Run the capability lookup first. Every time. Before you open, grep, or
+page through `report-widget-construction-corpus.md` or
+`non-card-host-and-target-evidence.md` at all.** For an ordinary capability
+question, translate the supplied facts into the structured request accepted
+by
 [`scripts/widget-capability-lookup.mjs`](scripts/widget-capability-lookup.mjs)
-and query the derived index — see
+and query the derived index immediately — see
 [`references/capability-index/README.md`](references/capability-index/README.md)
 for what a result contains and how its three axes (semantic / host / browser
 authoring) relate. Do not collapse an unavailable browser-authoring axis into
 semantic unsupported — they answer different questions.
+
+This has already failed once. A real run spent roughly twenty commands
+grepping and paging through the raw evidence files before it ever ran the
+lookup script — including one read that landed on the file's front matter
+instead of the record it needed, one query built to match nothing (filtering
+a `hostId` field like `H103` for the substring `supplier`), and two tangents
+into unrelated sources that never fed into the plan. Once it finally ran the
+lookup, two calls answered the exact question the previous twenty were
+groping toward. Don't repeat that. The lookup script exists precisely so you
+don't have to read the raw files to answer an ordinary question — treat
+reaching for `grep` or `Read` on either evidence file *before* the lookup as
+a mistake to catch yourself making, not a reasonable first move.
 
 The lookup verifies every indexed authority hash and the generator protocol
 before every result. A stale or unavailable index is a safe stop that
 requires an explicitly requested refresh — never rebuild it automatically or
 speculatively; see
 [`references/maintenance/refresh-work-order.md`](references/maintenance/refresh-work-order.md).
-Go to the domain evidence itself only when the lookup reports ambiguity or
-unsupported facts, or when preparing an export/build artifact — and even
-then, read only the relevant record, not the whole file. Both
-`report-widget-construction-corpus.md` and
+
+Go to the domain evidence itself only *after* the lookup reports ambiguity
+or unsupported facts, or when preparing an export/build artifact — never
+before, and even then, read only the relevant record, not the whole file.
+Both `report-widget-construction-corpus.md` and
 `non-card-host-and-target-evidence.md` are organized as one heading per
 record (`### Source <Name>` and `#### H<N> '<Name>'` respectively): search
 for the specific heading and read that section. Reading either file in full
